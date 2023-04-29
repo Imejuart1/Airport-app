@@ -14,8 +14,8 @@ function Login() {
         <h3>Login into your account</h3>
         <form>
           <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input type="text" id="username" name="username" />
+            <label htmlFor="email">Email</label>
+           <input type="email" placeholder="Enter your email address" name="email" required/>
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
