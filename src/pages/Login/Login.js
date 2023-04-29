@@ -7,9 +7,11 @@ function Login() {
     <div className="container">
       <div className="logo">
         <img src={Hamoye} alt="Hamoye logo" />
+        <h2>AIRLINES INFORMATION</h2>
       </div>
        <div className="login-form">
-        <h2>Login</h2>
+       <h2>Welcome</h2>
+        <h3>Login into your account</h3>
         <form>
           <div className="form-group">
             <label htmlFor="username">Username</label>
