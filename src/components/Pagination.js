@@ -1,3 +1,5 @@
+import "./Pagination.css"
+
 function Pagination({ itemsPerPage, totalItems, currentPage, setCurrentPage }) {
   const pageNumbers = [];
 
@@ -5,8 +7,13 @@ function Pagination({ itemsPerPage, totalItems, currentPage, setCurrentPage }) {
     pageNumbers.push(i);
   }
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentShowing = `${indexOfFirstItem + 1}-${indexOfLastItem > totalItems ? totalItems : indexOfLastItem} / ${totalItems}`;
+
   return (
-    <nav>
+    <nav className="pagination-container">
+      <div className="showing-container">{currentShowing}</div>
       <ul className="pagination">
         {pageNumbers.map((number) => (
           <li key={number} className="page-item">
@@ -22,5 +29,6 @@ function Pagination({ itemsPerPage, totalItems, currentPage, setCurrentPage }) {
     </nav>
   );
 }
+
 
 export default Pagination
