@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment-timezone';
 import './Home.css';
+import Pagination from '../../components/Pagination';
 
 function Home() {
   const [flights, setFlights] = useState([]);
   const [airportCounts, setAirportCounts] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
 
    useEffect(() => {
     const fetchData = async () => {
@@ -65,10 +68,12 @@ const countAirports = (flights) => {
 
   return { departure: departureCounts, arrival: arrivalCounts, currentTime: airportCurrentTime };
 };
-
+ const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = Object.keys(airportCounts.departure || {}).slice(indexOfFirstItem, indexOfLastItem);
    return (
     <div className="airport-counts">
-      <h2>Airport Counts</h2>
+      <h2>RESULTS FROM OPENSKY NETWORK API</h2>
       <table>
         <thead>
           <tr>
@@ -79,16 +84,22 @@ const countAirports = (flights) => {
           </tr>
         </thead>
         <tbody>
-          {Object.keys(airportCounts.departure || {}).map(airportCode => (
+           {currentItems.map((airportCode) => (
             <tr key={airportCode}>
               <td>{airportCode}</td>
-              <td>{airportCounts.currentTime[airportCode] ||0}</td>
+              <td>{airportCounts.currentTime[airportCode] || 0}</td>
               <td>{airportCounts.arrival[airportCode] || 0}</td>
               <td>{airportCounts.departure[airportCode] || 0}</td>
             </tr>
           ))}
         </tbody>
       </table>
+         <Pagination
+        itemsPerPage={itemsPerPage}
+        totalItems={Object.keys(airportCounts.departure || {}).length}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 }
