@@ -32,6 +32,8 @@ body {
   margin-top: 0;
   color:white;
   padding:1vw;
+  font-size: xx-large;
+  font-weight: bolder;
 }
 .login-form h3{
   margin-top: 0;
@@ -89,8 +91,17 @@ button[type='submit']:hover {
    color: #ffffff;
    align-self: center;
 }
-h5{
+.login-form h5{
    color: #ffffff;
    align-self: center;
    padding: 12px 0 32px;
+   font-size: large;
+}
+a{
+    text-decoration: none;
+    color: #6e0e8b;
+   
+}
+a:hover{
+   font-size: larger;
 }
