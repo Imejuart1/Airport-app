@@ -3,14 +3,32 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Home from './pages/Home/Home';
-import { useSelector } from "react-redux";
-import {selectLoggedIn} from './components/authSlice';
+import { useSelector, useDispatch } from "react-redux";
+import {selectLoggedIn, setLoggedIn} from './components/authSlice';
 import "./App.css"
 
 
 function App() {
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectLoggedIn);
 
+ // Load login state from localStorage on app load
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (isLoggedIn === 'true') {
+      dispatch(setLoggedIn(true));
+    }
+  }, []);
+
+  // Save login state to localStorage on login/logout
+  useEffect(() => {
+    localStorage.setItem('isLoggedIn', isLoggedIn);
+  }, [isLoggedIn]);
+
+  // Save login state to localStorage on login/logout
+  useEffect(() => {
+    localStorage.setItem('isLoggedIn', isLoggedIn);
+  }, [isLoggedIn]);
   return (
     <Router>
       {/* Navigation bar */}
