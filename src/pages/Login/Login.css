@@ -91,6 +91,11 @@ button[type='submit']:hover {
    color: #ffffff;
    align-self: center;
 }
+.logo p{
+  color:rgb(218, 198, 198);
+  font-size: large;
+  font-weight: bolder;
+}
 .login-form h5{
    color: #ffffff;
    align-self: center;

@@ -45,6 +45,9 @@ function Login() {
       <div className="logo">
         <img src={Hamoye} alt="Hamoye logo" />
         <h2>AIRLINES INFORMATION</h2>
+        <p>Use the information below to login , you can aswell sign up if you wish</p>
+        <p>USERNAME: hamoye@gmail.com</p>
+        <p>PASSWORD: hamoye251@</p>
       </div>
        <div className="login-form">
        <h2>Welcome</h2>

@@ -6,12 +6,28 @@ import Home from './pages/Home/Home';
 import { useSelector } from "react-redux";
 import {selectLoggedIn} from './components/authSlice';
 
-
 function App() {
   const isLoggedIn = useSelector(selectLoggedIn);
-  
- return (
+
+  const handleLogout = () => {
+    // dispatch logout action to the store
+    // redirect user to the login page
+  }
+
+  return (
     <Router>
+      <nav>
+        <ul>
+          {isLoggedIn ? (
+            <li><button onClick={handleLogout}>Logout</button></li>
+          ) : (
+            <>
+              <li><Link to="/">Login</Link></li>
+              <li><Link to="/signup">Sign Up</Link></li>
+            </>
+          )}
+        </ul>
+      </nav>
       <Routes>
         {isLoggedIn ? (
           <Route path="/" element={<Home />} />
