@@ -18,6 +18,9 @@ function App() {
     if (isLoggedIn === 'true') {
       dispatch(setLoggedIn(true));
     }
+    else {
+       dispatch(setLoggedIn(false))
+      }
   }, []);
 
   //Save login state to localStorage on login/logout
@@ -25,10 +28,6 @@ function App() {
     localStorage.setItem('isLoggedIn', isLoggedIn);
   }, [isLoggedIn]);
 
-  // Save login state to localStorage on login/logout
-  useEffect(() => {
-    localStorage.setItem('isLoggedIn', isLoggedIn);
-  }, [isLoggedIn]);
   return (
     <Router>
       {/* Navigation bar */}
