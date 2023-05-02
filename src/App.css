@@ -17,16 +17,28 @@
   font-weight: bold;
   font-size: 1.5rem;
   color: #333;
+
+}
+.navbar-bran {
+  font-weight: bold;
+  width:100%;
+
 }
 
 .navbar-link {
-  font-size: 1.5rem;
   color: #333;
   text-decoration: none;
     padding: 5px 10px;
-  margin-left: 10px;
 }
 
 .navbar-link:hover {
   color: #666;
 }
+
+ /* styles for mobile devices */
+@media only screen and (max-width: 767px) {
+ .navbar-link {
+  margin-right: 5vw;
+}
+}
+

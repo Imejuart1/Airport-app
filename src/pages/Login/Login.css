@@ -94,6 +94,8 @@ button[type='submit']:hover {
 .logo p{
   color:rgb(218, 198, 198);
   font-weight: bolder;
+  text-align: center;
+  padding: 1px;
 }
 .login-form h5{
    color: #ffffff;
@@ -108,4 +110,28 @@ a{
 }
 a:hover{
    font-size: larger;
+}
+ /* styles for mobile devices */
+@media only screen and (max-width: 767px) {
+
+
+.logo {
+ display: none;
+}
+.login-form {
+ width:80vw;
+}
+.form-group input {
+  width: 60vw;
+}
+.login-form h3{
+ width:100vw;
+}
+.login-form h5{
+   width: 85vw;
+}
+button[type='submit'] {
+  width: 70%;
+
+}
 }

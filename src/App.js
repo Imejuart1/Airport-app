@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import {selectLoggedIn} from './components/authSlice';
 import "./App.css"
 
+
 function App() {
   const isLoggedIn = useSelector(selectLoggedIn);
 
@@ -16,7 +17,7 @@ function App() {
       <div className="navbar">
         {/* Brand link */}
         <Link to="/" className="navbar-brand">
-          My App
+          HAMOYE
         </Link>
         {/* Conditional rendering based on login status */}
         {isLoggedIn ? (
