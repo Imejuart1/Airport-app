@@ -39,7 +39,7 @@ function App() {
         {/* Conditional rendering based on login status */}
         {isLoggedIn ? (
         // Log out link
-        <Link to="/" className="navbar-link">
+        <Link to="/" className="navbar-link onClick={setLoggedIn(false)}">
           Log Out
          </Link>
         ) : (
