@@ -18,7 +18,7 @@ function App() {
     if (isLoggedIn === 'true') {
       dispatch(setLoggedIn(true));
     }
-    else {
+    if (isLoggedIn === 'false'){
        dispatch(setLoggedIn(false))
       }
   }, []);
