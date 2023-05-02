@@ -4,7 +4,7 @@ import Login from './pages/Login/Login';
 import Signup from './pages/Signup/Signup';
 import Home from './pages/Home/Home';
 import { useSelector, useDispatch } from "react-redux";
-import {selectLoggedIn, setLoggedIn} from './components/authSlice';
+import { selectLoggedIn, setLoggedIn } from './components/authSlice';
 import "./App.css"
 
 
@@ -12,18 +12,19 @@ function App() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectLoggedIn);
 
- // Load login state from localStorage on app load
+  const handleLogout = () => {
+    dispatch(setLoggedIn(false));
+  };
+
+  // Load login state from localStorage on app load
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     if (isLoggedIn === 'true') {
       dispatch(setLoggedIn(true));
     }
-    if (isLoggedIn === 'false'){
-       dispatch(setLoggedIn(false))
-      }
   }, []);
 
-  //Save login state to localStorage on login/logout
+  // Save login state to localStorage on login/logout
   useEffect(() => {
     localStorage.setItem('isLoggedIn', isLoggedIn);
   }, [isLoggedIn]);
@@ -38,20 +39,20 @@ function App() {
         </Link>
         {/* Conditional rendering based on login status */}
         {isLoggedIn ? (
-        // Log out link
-        <Link to="/" className="navbar-link onClick={setLoggedIn(false)}">
-          Log Out
-         </Link>
+          // Log out button
+          <button onClick={handleLogout} className="navbar-link">
+            Log Out
+          </button>
         ) : (
           // Sign in and sign up links
           <>
-             <div className="sign">
-            <Link to="/" className="navbar-link">
-              Sign In
-            </Link>
-            <Link to="/signup" className="navbar-link">
-              Sign Up
-            </Link>
+            <div className="sign">
+              <Link to="/" className="navbar-link">
+                Sign In
+              </Link>
+              <Link to="/signup" className="navbar-link">
+                Sign Up
+              </Link>
             </div>
           </>
         )}
