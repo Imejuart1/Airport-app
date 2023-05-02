@@ -20,7 +20,7 @@ function App() {
     }
   }, []);
 
-  // Save login state to localStorage on login/logout
+  //Save login state to localStorage on login/logout
   useEffect(() => {
     localStorage.setItem('isLoggedIn', isLoggedIn);
   }, [isLoggedIn]);
