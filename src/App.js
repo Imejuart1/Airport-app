@@ -12,15 +12,20 @@ function App() {
 
   return (
     <Router>
+      {/* Navigation bar */}
       <div className="navbar">
+        {/* Brand link */}
         <Link to="/" className="navbar-brand">
           My App
         </Link>
+        {/* Conditional rendering based on login status */}
         {isLoggedIn ? (
+        // Log out link
         <Link  className="navbar-link" onClick={() => isLoggedIn(false)}>
           Log Out
          </Link>
         ) : (
+          // Sign in and sign up links
           <>
              <div className="sign">
             <Link to="/" className="navbar-link">
@@ -33,10 +38,13 @@ function App() {
           </>
         )}
       </div>
+      {/* Routing */}
       <Routes>
         {isLoggedIn ? (
+          // Show Home page when logged in
           <Route path="/" element={<Home />} />
         ) : (
+          // Show Login and Signup pages when logged out
           <>
             <Route path="/" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
@@ -48,4 +56,3 @@ function App() {
 }
 
 export default App;
-
