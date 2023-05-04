@@ -68,8 +68,8 @@ function Home() {
       const latestTime = airportLastSeen[airportCode];
       const avgTime = Math.floor((earliestTime + latestTime) / 2);
       const cstTime = moment.tz(avgTime * 1000, 'America/Chicago');
-      const timeFormat = cstTime.hour() < 12 ? 'h:mmA' : 'h:mmP';
-      airportCurrentTime[airportCode] = cstTime.format(timeFormat) + 'M' + ' CST';
+      const timeFormat = cstTime.hour() < 12 ? 'h:mm A' : 'h:mm P';
+      airportCurrentTime[airportCode] = cstTime.format(timeFormat)  + ' CST';
     });
 
     return { departure: departureCounts, arrival: arrivalCounts, currentTime: airportCurrentTime };
