@@ -68,7 +68,7 @@ function Home() {
       const latestTime = airportLastSeen[airportCode];
       const avgTime = Math.floor((earliestTime + latestTime) / 2);
       const cstTime = moment.tz(avgTime * 1000, 'America/Chicago');
-      const timeFormat = cstTime.hour() < 12 ? 'h:mm A' : 'h:mm P';
+      const timeFormat = cstTime.hour() < 12 ? 'h:mm A' :'h:mm P [on] M'
       airportCurrentTime[airportCode] = cstTime.format(timeFormat)  + ' CST';
     });
 
