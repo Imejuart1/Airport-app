@@ -14,7 +14,7 @@ function Pagination({ itemsPerPage, totalItems, currentPage, setCurrentPage }) {
   const currentShowing = `${indexOfFirstItem + 1}-${indexOfLastItem > totalItems ? totalItems : indexOfLastItem} / ${totalItems}`;
 
   // Determine the range of pages to show
-  const maxPagesToShow = 10;
+  const maxPagesToShow = 6;
   const halfMaxPagesToShow = Math.floor(maxPagesToShow / 2);
   let startPage = Math.max(1, currentPage - halfMaxPagesToShow);
   let endPage = Math.min(startPage + maxPagesToShow - 1, pageNumbers.length);
