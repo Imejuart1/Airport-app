@@ -33,11 +33,11 @@
 }
 
 .page-link:hover {
-  background-color: #eee;
+  background-color:  #6e0e8b;
 }
 
 .active {
-  background-color: #eee;
+  background-color:  #6e0e8b;
   border-color:#6e0e8b;
   color: #fff;
 }
