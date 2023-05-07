@@ -1,3 +1,4 @@
+//This Javascript file renders the data from opensky api
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment-timezone';
@@ -83,7 +84,7 @@ function Home() {
 
 return (
   <div className="airport-counts">
-    <h2>RESULTS FROM OPENSKY NETWORK API</h2>
+    <h2>RESULTS FROM OPENSKY NETWORK API, MADE WITH REACT</h2>
     <table>
       <thead>
         <tr>
