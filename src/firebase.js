@@ -4,7 +4,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 // Initialize Firebase project configuration
-
+  const firebase: {
+  apiKey: " ",
+  authDomain: " ",
+  projectId: " ",
+  storageBucket: " ",
+  messagingSenderId: " ",
+  appId: " "
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
