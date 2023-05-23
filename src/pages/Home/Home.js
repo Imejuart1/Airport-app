@@ -117,6 +117,6 @@ return (
     />
   </div>
 );
- }s
+ }
 
 export default Home;
