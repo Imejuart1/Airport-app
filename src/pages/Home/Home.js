@@ -14,33 +14,8 @@ function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(10);
 
-  // Fetch data from OpenSky API on component mount and every second thereafter
-  useEffect(() => {
-    const fetchData = async () => {
-      const now = Math.floor(Date.now() / 1000); // current Unix timestamp in seconds
-      const begin = now - 3600; // 1 hour ago
-      const end = now + 3600; // 1 hour from now
 
-      try {
-        const res = await axios.get(`https://opensky-network.org/api/flights/all?begin=${begin}&end=${end}`);
-        const flights = res.data;
-        const counts = countAirports(flights);
-        setFlights(flights);
-        setAirportCounts(counts);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    // Fetch data initially and then every second
-    fetchData();
-    const intervalId = setInterval(fetchData, 1000);
-
-    // Cleanup function to clear interval when component unmounts
-    return () => clearInterval(intervalId);
-  }, []);
-  
-  // Helper function to count the number of flights for each airport
+    // Helper function to count the number of flights for each airport
   const countAirports = (flights) => {
     const departureCounts = {};
     const arrivalCounts = {};
@@ -75,6 +50,33 @@ function Home() {
 
     return { departure: departureCounts, arrival: arrivalCounts, currentTime: airportCurrentTime };
   };
+ 
+  // Fetch data from OpenSky API on component mount and every second thereafter
+  useEffect(() => {
+    const fetchData = async () => {
+      const now = Math.floor(Date.now() / 1000); // current Unix timestamp in seconds
+      const begin = now - 3600; // 1 hour ago
+      const end = now + 3600; // 1 hour from now
+
+      try {
+        const res = await axios.get(`https://opensky-network.org/api/flights/all?begin=${begin}&end=${end}`);
+        const flights = res.data;
+        const counts = countAirports(flights);
+        setAirportCounts(counts);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    // Fetch data initially and then every second
+    fetchData();
+    const intervalId = setInterval(fetchData, 1000);
+
+    // Cleanup function to clear interval when component unmounts
+    return () => clearInterval(intervalId);
+  }, []);
+  
+
 
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -115,6 +117,6 @@ return (
     />
   </div>
 );
- }
+ }s
 
 export default Home;
