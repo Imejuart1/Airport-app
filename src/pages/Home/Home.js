@@ -81,7 +81,7 @@ function Home() {
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = Object.keys(airportCounts || {}).slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = Object.keys(airportCounts.currentTime|| {}).slice(indexOfFirstItem, indexOfLastItem);
 
 
 return (
