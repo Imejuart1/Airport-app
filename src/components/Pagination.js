@@ -26,7 +26,7 @@ function Pagination({ itemsPerPage, totalItems, currentPage, setCurrentPage }) {
   // Render the pagination buttons
   return (
     <nav className="pagination-container">
-      <div className="showing-container">{}</div>
+      <div className="showing-container">{currentShowing}</div>
       <ul className="pagination">
         {startPage > 1 && (
           <li key="first" className="page-item">
